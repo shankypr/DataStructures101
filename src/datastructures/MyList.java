@@ -63,9 +63,37 @@ public class MyList {
 		
 	}
 	
-	public void delete(String str) {
+	public MyNode kthToLast(int k) {
+		if(k==0) {
+			return this.head;
+		}
+		
+		
+		//MyNode target = null;
+		MyNode prev = head;
+		MyNode runner = head;
+		int tmp=k;
+		while(runner!=null && tmp>0) {
+			tmp--;
+			runner=runner.next;
+		}
+		if(tmp>0) {
+			return null;
+		}
+		
+		while(runner !=null) {
+			runner=runner.next;
+			prev = prev.next;
+		}
+		
+		return prev;
+		
+	}
+	
+	public Boolean delete(String str) {
+		Boolean deletedDups = false;
 		if(str == null || str.isEmpty()) {
-			return;
+			return deletedDups;
 		}
 		MyNode prev = null;
 		MyNode curr = head;
@@ -74,14 +102,12 @@ public class MyList {
 			
 			if(curr.data.equals(str)) {
 				prev.next = curr.next;
+				deletedDups = true;
 			}
-			
 			prev = curr;
 			curr=curr.next;
-			
 		}
-		
-		
+		return deletedDups;
 	}
 	
 	public Boolean hasDuplicates() {

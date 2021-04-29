@@ -12,6 +12,10 @@ public class MyNode {
 	MyNode(String val, MyNode next) {
 		this.data = val;
 		this.next = next;
-	} 
+	}
+
+	public String getData() {
+		return this.data;
+	}
 
 }
