@@ -4,7 +4,7 @@ import java.util.logging.*;
 
 
 
-public class MyList {
+public class MyList implements MyListInterface {
 
 	
 	private final static Logger LOGGER = Logger.getLogger(MyList.class.getName());
@@ -14,7 +14,7 @@ public class MyList {
 		
 	}
 	
-	
+	@Override
 	public void addLast(String str) {
 		if(str==null||str.isEmpty()) {
 			return;
@@ -37,6 +37,7 @@ public class MyList {
 		}
 	}
 	
+	@Override
 	public void addFirst(String str) {
 		MyNode newNode = new MyNode(str);
 		if(head==null) {
@@ -47,9 +48,8 @@ public class MyList {
 		head = newNode;
 	}
 	
+	@Override
 	public void printList() {
-		
-		
 		if(head==null) {
 			return;
 		}
@@ -59,17 +59,30 @@ public class MyList {
 			System.out.print("["+curr.data+"],");
 			curr=curr.next;
 		}
-		
-		
 	}
 	
+	
+	@Override
+	public MyNode get(int idx) {
+		if(idx==-1) {
+			return null;
+		}
+		MyNode curr = this.head;
+		for(;idx>0;idx--) {
+			if(curr!=null) {
+				curr=curr.next;
+			}
+		}
+		return curr;
+	}
+	
+	@Override
 	public MyNode kthToLast(int k) {
 		if(k==0) {
 			return this.head;
 		}
 		
 		
-		//MyNode target = null;
 		MyNode prev = head;
 		MyNode runner = head;
 		int tmp=k;
@@ -90,6 +103,7 @@ public class MyList {
 		
 	}
 	
+	@Override
 	public Boolean delete(String str) {
 		Boolean deletedDups = false;
 		if(str == null || str.isEmpty()) {
@@ -110,6 +124,7 @@ public class MyList {
 		return deletedDups;
 	}
 	
+	@Override
 	public Boolean hasDuplicates() {
 		if(head==null||head.next==null) {
 			return false;
@@ -122,6 +137,29 @@ public class MyList {
 					return true;
 				}				
 				runner=runner.next;
+			}
+			curr=curr.next;
+		}
+		return false;
+	}
+	
+	@Override
+	public Boolean removeDuplicates() {
+		if(head==null||head.next==null) {
+			return false;
+		}
+		MyNode curr = head;
+		while(curr!=null) {
+			MyNode prev = curr;
+			MyNode runner = curr.next;
+			while(runner!=null) {
+				if(curr.data.equals(runner.data)) {
+					prev.next = runner.next;
+					runner = runner.next;
+					
+				}				
+				runner=runner.next;
+				prev = prev.next;
 			}
 			curr=curr.next;
 		}

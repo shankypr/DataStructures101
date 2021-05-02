@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Random;
 import java.util.Set;
 
+import datastructures.MyNode;
+
 
 public class Awesome {
 
@@ -25,14 +27,41 @@ public class Awesome {
 		}
 		
 		ListProblems lp = new ListProblems();
-		//Awesome.printMtxSpiral(mtx);
+		
+		
+
+		
 
 	}
 	
+	
+	
+    public MyNode mergeTwoLists(MyNode l1, MyNode l2) {
+        
+        MyNode lptr = l1;
+        MyNode rptr = l2;
+
+        
+        while(lptr!=null && rptr!=null) {
+            
+        	if(lptr.getVal() > rptr.getVal()) {
+        		
+        		System.out.println("Left greater than right. Lval:"+lptr.getVal() + " rightVal:"+rptr.getVal());
+        		
+        	}
+        	else {
+        		System.out.println("Right greater than left. Rval"+rptr.getVal() + " LightVal:"+lptr.getVal());
+        	}
+        	
+        	lptr=lptr.getNext();
+        	rptr=rptr.getNext();
+        	
+        }
+        return null;
+    }
+        
+	
 	public static void printMtxSpiral(int [][] mtx) {
-//		System.out.println("Original Matrix size : "+ mtx.length);
-//		System.out.println("Original Matrix fist dim : "+ mtx[0].length);
-//		System.out.println("Original Matrix fist dim : "+ mtx[2].length);
 		Awesome.printMatrix(mtx);
 		System.out.println("---------------------------------------------------");
 		
