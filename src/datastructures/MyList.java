@@ -166,5 +166,35 @@ public class MyList implements MyListInterface {
 		return false;
 	}
 	
+	@Override 
+	public Boolean containsCycle() {
+		if(this.head == null || this.head.next == null) {
+			return false;
+		}
+		
+		
+		MyNode slow = this.head;
+		MyNode fast = this.head.next;
+		
+		while(slow !=null) {
+			if(fast == null || fast.next==null) {
+				return false;
+			}
+			slow = slow.next;
+			fast = fast.next.next;
+			
+			if(slow==fast) {
+				return true;
+			}
+			
+		}
+		return false;
+		
+	}
+	
+	
+	
+
+	
 
 }

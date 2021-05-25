@@ -17,5 +17,7 @@ public interface MyListInterface {
 	Boolean hasDuplicates();
 	
 	Boolean removeDuplicates();
+	
+	Boolean containsCycle();
 
 }

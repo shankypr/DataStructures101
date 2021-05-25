@@ -5,10 +5,11 @@ import java.util.List;
 import java.util.Random;
 import java.util.Set;
 
+import datastructures.MyBinarySearchTree;
 import datastructures.MyNode;
 
 
-public class Awesome {
+public class TestRunner {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -26,7 +27,18 @@ public class Awesome {
 			}
 		}
 		
-		ListProblems lp = new ListProblems();
+		//ListProblems lp = new ListProblems();
+		
+//		MyBinarySearchTree myBst = new MyBinarySearchTree(17);
+//		myBst.add(18);
+//		myBst.add(7);
+//		myBst.add(2);
+//		myBst.add(13);
+//		myBst.add(6);
+		//System.out.print("My Bst:");
+		//myBst.printBstStructure();
+		
+		InterviewExamples.test();
 		
 		
 
@@ -62,7 +74,7 @@ public class Awesome {
         
 	
 	public static void printMtxSpiral(int [][] mtx) {
-		Awesome.printMatrix(mtx);
+		TestRunner.printMatrix(mtx);
 		System.out.println("---------------------------------------------------");
 		
 		int colLength = mtx[0].length;
@@ -85,7 +97,7 @@ public class Awesome {
 	
 	public static void rotateMatrix(int [][] mtx) {
 		System.out.println("Original Matrix : ");
-		Awesome.printMatrix(mtx);
+		TestRunner.printMatrix(mtx);
 			
 		
 		
@@ -99,7 +111,7 @@ public class Awesome {
 			}
 		}
 		System.out.println(" Rotated Matrix : ");
-		Awesome.printMatrix(mtx);
+		TestRunner.printMatrix(mtx);
 	}
 	
 	public static void printMatrix(int [][] mtx) {
