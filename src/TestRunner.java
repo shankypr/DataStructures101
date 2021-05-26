@@ -7,6 +7,7 @@ import java.util.Set;
 
 import datastructures.MyBinarySearchTree;
 import datastructures.MyNode;
+import robo.ShankController;
 
 
 public class TestRunner {
@@ -38,8 +39,8 @@ public class TestRunner {
 		//System.out.print("My Bst:");
 		//myBst.printBstStructure();
 		
-		InterviewExamples.test();
-		
+		//InterviewExamples.test();
+		ShankController.test();
 		
 
 		
